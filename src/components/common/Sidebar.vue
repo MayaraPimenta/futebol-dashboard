@@ -13,6 +13,15 @@
     <div class="sidebar__body">
       <nav class="sidebar__body__nav">
         <router-link
+          to="/"
+          class="sidebar__body__nav--item"
+        >
+          <span class="material-symbols-outlined">
+            home
+          </span>
+          Dashboard
+        </router-link>
+        <router-link
           to="/pedidos"
           class="sidebar__body__nav--item"
         >
@@ -53,10 +62,7 @@
 <style lang="scss" scoped>
 .sidebar {
   position: relative;
-  margin: 1rem;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 15px 15px 62px rgba(0, 0, 0, 0.07);
+  @include component;
 
   &__header {
     display: flex;
@@ -83,13 +89,14 @@
   }
 
   &__body {
-      margin-top: 20px;
       &__nav {
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        padding: 24px;
         color: $gray;
+
+        &:first-child {
+          padding-top: 20px;
+        }
 
         &--item {
           text-decoration: none;
@@ -98,6 +105,15 @@
           align-items: center;
           justify-content: flex-start;
           gap: 20px;
+          padding: 24px;
+          transition: all 0.3s ease;
+        }
+
+        a {
+          &:hover {
+          color: $primary;
+          font-weight: $font-bold;
+          }
         }
       }
   }

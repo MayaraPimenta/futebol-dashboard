@@ -34,4 +34,11 @@
         @content;
       }
     }
-  }
+}
+
+@mixin component() {
+  margin: 1rem 1rem 2.5rem 1rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 15px 15px 62px rgba(0, 0, 0, 0.07);
+}

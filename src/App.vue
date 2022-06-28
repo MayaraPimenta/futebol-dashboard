@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <Sidebar />
     <transition
       name="slide-fade"
       mode="out-in"
@@ -11,13 +10,11 @@
 </template>
 
 <script>
-import Sidebar from '@/components/common/Sidebar.vue';
-
 export default {
   name: 'App',
 
   components: {
-    Sidebar,
+
   },
 };
 </script>
@@ -32,13 +29,12 @@ html {
     #app {
       font-family: Nunito, sans-serif;
       background-color: #fdfcf8;
+      background-image: url('@/assets/img/background.svg');
       color: $black;
       min-height: 100vh;
       padding: 0 4%;
       font-size: $text-sm;
       font-weight: $font-medium;
-      display: grid;
-      grid-template-columns: 260px auto;
 
       @include screen(tablet-big-up) {
         padding: 0 8%;

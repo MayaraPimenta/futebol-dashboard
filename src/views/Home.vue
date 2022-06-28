@@ -1,17 +1,26 @@
 <template>
   <div class="home">
-    <Dashboard />
+    <LoginCard />
   </div>
 </template>
 
 <script>
-import Dashboard from '@/components/homeComponents/Dashboard.vue';
+import LoginCard from '@/components/common/LoginCard.vue';
 
 export default {
   name: 'Home',
 
   components: {
-    Dashboard,
+    LoginCard
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+</style>

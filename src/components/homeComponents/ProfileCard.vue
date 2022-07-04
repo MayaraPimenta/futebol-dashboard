@@ -27,11 +27,12 @@
 
 <style lang="scss" scoped>
 .profile-card {
-    height: 227px;
-    background-color: #b4b7ba5a;
+    height: 210px;
+    background-color: $gray-card;
+    backdrop-filter: blur(4px);
     border-radius: 10px;
     color: white;
-    padding: 12px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;

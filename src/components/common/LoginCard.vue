@@ -77,7 +77,7 @@
 
 <style lang="scss" scoped>
 .login-card {
-    background-color: #ffffff21;
+    background-color: $gray-card;
     backdrop-filter: blur(4px);
     border-radius: 10px;
     color: $white;
@@ -130,6 +130,7 @@
         cursor: pointer;
         font-family: 'Nunito';
         background-color: #01152c7d;
+        transition: all 0.5s ease;
 
         &:hover {
           filter: brightness(1.5);

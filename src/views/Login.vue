@@ -1,19 +1,18 @@
 <template>
   <div class="home">
-    <ProfileCard />
+    <LoginCard />
   </div>
 </template>
 
 <script>
-import ProfileCard from '@/components/homeComponents/ProfileCard.vue';
-
+import LoginCard from '@/components/common/LoginCard.vue';
 
 export default {
-  name: 'Home',
+  name: 'Login',
 
   components: {
-    ProfileCard,
-  }
+    LoginCard,
+  },
 };
 </script>
 

@@ -29,10 +29,14 @@ export default {
 <style lang="scss" scoped>
 .home {
   display: grid;
-  grid-template: auto auto /0.8fr 2fr;
-  gap: 60px;
-  padding-top: 48px;
-  padding-bottom: 48px;
+  grid-template-columns: 1fr;
+  padding: 4% 0;
+  gap: 13px;
 
+  @include screen(tablet-up) {
+    grid-template: auto auto /0.8fr 2fr;
+    gap: 60px;
+    padding: 4rem;
+  }
 }
 </style>

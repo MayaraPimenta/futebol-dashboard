@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import Login from '../views/Login.vue';
+import Voting from '../views/Voting.vue';
 import store from '@/store/modules/auth';
 
 Vue.use(VueRouter);
@@ -21,6 +22,14 @@ const routes = [
     component: Login,
     meta: {
       requiresAuth: false,
+    }
+  },
+  {
+    path: '/votacao',
+    name: 'Votacao',
+    component: Voting,
+    meta: {
+      requiresAuth: true,
     }
   },
 ];

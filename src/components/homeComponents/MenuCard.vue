@@ -29,15 +29,19 @@
 
 <style lang="scss" scoped>
 .menu-card {
-    height: 400px;
-    background-color: $gray-card;
-    border-radius: 10px;
-    color: white;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    display: none;
+
+    @include screen(tablet-up) {
+      height: 400px;
+      background-color: $gray-card;
+      border-radius: 10px;
+      color: white;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
 
     &__option {
       text-decoration: none;

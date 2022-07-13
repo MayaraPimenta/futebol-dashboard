@@ -100,7 +100,7 @@
       justify-content: center;
 
       &--label {
-        font-size: $text-base;
+        font-size: $size-base;
         font-weight: $font-light;
         margin-bottom: 3px;
       }
@@ -128,7 +128,7 @@
         font-weight: 700;
         color: $white;
         cursor: pointer;
-        font-family: 'Nunito';
+        font-family: 'Montserrat';
         background-color: #01152c7d;
         transition: all 0.5s ease;
 

@@ -14,40 +14,25 @@ $radius-round: 50%;     // rounded
 */
 // -- Weight
 // Ex.: font-weight: $font-thin;
+$font-thin: 100;
+$font-extralight: 200;
 $font-light: 300;
 $font-regular: 400;
 $font-medium: 500;
 $font-semibold: 600;
 $font-bold: 700;
-$font-heavy: 800;
+$font-extrabold: 800;
+$font-black: 900;
 
 // -- Size
-// Ex.: font-size: $text-sm;
-$text-xs: 0.75rem;        // 12px
-$text-sm:	0.875rem;     // 14px
-$text-base:	1rem;         // 16px
-$text-lg:	1.125rem;     // 18px
-$text-xl:	1.25rem;      // 20px
-$text-2xl: 1.5rem;        // 24px
-$text-3xl: 1.875rem;      // 30px
-$text-4xl: 2.25rem;       // 36px
-$text-5xl: 3rem;          // 48px
-$text-6xl: 4rem;          // 64px
-
-// -- Line height
-// Ex.: line-height: $leading-tight;
-$leading-none: 1;
-$leading-tight: 1.25;
-$leading-snug: 1.375;
-$leading-normal: 1.5;
-$leading-relaxed: 1.625;
-$leading-loose: 2;
-
-// -- Letter Spacing
-// Ex.: letter-spacing: $tracking-tight;
-$tracking-tighter: -0.05em; // -0.05 * (tamanho da fonte)
-$tracking-tight: -0.025em;  // -0.025 * (tamanho da fonte)
-$tracking-normal: 0;        // 0
-$tracking-wide: 0.025em;    // 0.025 * (tamanho da fonte)
-$tracking-wider: 0.05em;    // 0.05 * (tamanho da fonte)
-$tracking-widest: 0.1em;    // 0.1 * (tamanho da fonte)
+// Ex.: font-size: $size-sm;
+$size-xs: 0.75rem;        // 12px
+$size-sm:	0.875rem;     // 14px
+$size-base:	1rem;         // 16px
+$size-lg:	1.125rem;     // 18px
+$size-xl:	1.25rem;      // 20px
+$size-2xl: 1.5rem;        // 24px
+$size-3xl: 1.875rem;      // 30px
+$size-4xl: 2.25rem;       // 36px
+$size-5xl: 3rem;          // 48px
+$size-6xl: 4rem;          // 64px

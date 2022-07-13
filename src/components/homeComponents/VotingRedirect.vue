@@ -3,15 +3,21 @@
     to="/votacao"
     class="voting-redirect"
   >
-    <h1>
-      Rodada {{ activeRound.number }}
-    </h1>
-    <p>
-      Começa: {{ activeRound.startDate }}
-    </p>
-    <p>
-      Encerra: {{ activeRound.endDate }}
-    </p>
+    <div class="voting-redirect__voting-data">
+      <h1>
+        Rodada {{ activeRound.number }}
+      </h1>
+      <p>
+        Começa: {{ activeRound.startDate }}
+      </p>
+      <p>
+        Encerra: {{ activeRound.endDate }}
+      </p>
+    </div>
+
+    <div class="voting-redirect__text">
+      Vote agora!
+    </div>
   </router-link>
 </template>
 
@@ -28,18 +34,38 @@ export default {
     ]),
 
     activeRound() {
-      return this.allRounds.data[0];
+      const active = this.allRounds.data.find((el) => {
+        const currentDate = new Date;
+
+        return el.endDate > currentDate.toISOString();
+      });
+
+      return {
+        number: active.number,
+        startDate: this.formatDate(active.startDate),
+        endDate: this.formatDate(active.endDate)
+      };
     }
   },
 
   created() {
     this.getAllRounds();
+    this.activeRound;
   },
 
   methods: {
     ...mapActions([
       'getAllRounds',
     ]),
+
+    formatDate(date) {
+      const fullDate = new Date(date);
+      const day = fullDate.getDate();
+      const month = fullDate.getMonth();
+      const fullMonth = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+
+      return `${day} de ${fullMonth[month]}`;
+    }
   }
 };
 </script>
@@ -54,5 +80,18 @@ export default {
   color: white;
   padding: 24px;
   text-decoration: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: grid;
+  grid-template: 1fr / auto auto;
+
+  &__text {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #FB891F;
+  }
 }
 </style>

@@ -1,4 +1,4 @@
-import api from '@/api/round';
+import api from '@/api/players';
 
 export default {
     state: {

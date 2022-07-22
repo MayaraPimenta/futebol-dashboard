@@ -13,7 +13,7 @@ export default {
       async getAllPlayers({ commit }) {
         const response = await api.getPlayers();
 
-        commit('GET_PLAYERS', response.data);
+        commit('GET_PLAYERS', response.data.data);
       }
     },
 

@@ -1,5 +1,7 @@
 <template>
+  <div v-if="loading" />
   <router-link
+    v-else
     to="/votacao"
     class="voting-redirect"
   >
@@ -22,10 +24,16 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'VotingRedirect',
+
+  data() {
+    return {
+      loading: false,
+    };
+  },
 
   computed: {
     ...mapGetters([
@@ -49,15 +57,10 @@ export default {
   },
 
   created() {
-    this.getAllRounds();
     this.activeRound;
   },
 
   methods: {
-    ...mapActions([
-      'getAllRounds',
-    ]),
-
     formatDate(date) {
       const fullDate = new Date(date);
       const day = fullDate.getDate();
@@ -83,6 +86,13 @@ export default {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   display: grid;
   grid-template: 1fr / auto auto;
+
+  &__voting-data {
+
+    p {
+      font-size: $font-regular;
+    }
+  }
 
   &__text {
     display: flex;

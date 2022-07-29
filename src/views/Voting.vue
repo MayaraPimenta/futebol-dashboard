@@ -1,12 +1,20 @@
 <template>
   <div class="voting">
-    VOTAÇÃO
+    <BaseButton
+      icon-name="Check"
+    />
   </div>
 </template>
 
 <script>
+import BaseButton from '@/components/common/BaseButton.vue';
+
 export default {
   name: 'Voting',
+
+  components: {
+    BaseButton,
+  },
 };
 </script>
 

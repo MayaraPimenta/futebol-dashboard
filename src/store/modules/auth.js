@@ -18,9 +18,11 @@ export default {
         try {
             const response = await api.userLogin(data.email, data.password);
 
-            commit('SET_USER_LOGIN', response.data.data.token);
             setAuthHeader(response.data.data.token);
-            localStorage.setItem('user_token', JSON.stringify(response.data.data.token));
+
+            sessionStorage.setItem('user_token',response.data.data.token);
+
+            commit('SET_USER_LOGIN', response.data.data.token);
 
             router.push('/');
         } catch (error) {

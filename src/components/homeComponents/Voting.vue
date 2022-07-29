@@ -6,6 +6,7 @@
     class="voting-redirect"
   >
     <div
+      v-if="activeRound"
       class="voting-redirect__voting-data"
     >
       <h1>
@@ -51,12 +52,16 @@ export default {
 
   methods: {
     formatDate(date) {
-      const fullDate = new Date(date);
-      const day = fullDate.getDate();
-      const month = fullDate.getMonth();
-      const fullMonth = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+      if (date) {
+        const fullDate = new Date(date);
+        const day = fullDate.getDate();
+        const month = fullDate.getMonth();
+        const fullMonth = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
 
-      return `${day} de ${fullMonth[month]}`;
+        return `${day} de ${fullMonth[month]}`;
+      }
+
+      return '';
     }
   }
 };

@@ -15,7 +15,7 @@
 import ProfileCard from '@/components/homeComponents/ProfileCard.vue';
 import MenuCard from '@/components/homeComponents/MenuCard.vue';
 import Top3 from '@/components/homeComponents/Top3.vue';
-import VotingRedirect from '@/components/homeComponents/temp.vue';
+import VotingRedirect from '@/components/homeComponents/Voting.vue';
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
 import { mapActions } from 'vuex';
 
@@ -36,7 +36,7 @@ export default {
     };
   },
 
-  created() {
+  mounted() {
     this.getAllRounds();
   },
 

@@ -1,17 +1,21 @@
 <template>
+  <LoadingSpinner v-if="loading" />
   <router-link
+    v-else
     to="/votacao"
     class="voting-redirect"
   >
-    <div class="voting-redirect__voting-data">
+    <div
+      class="voting-redirect__voting-data"
+    >
       <h1>
-        Rodada {{ activeRound.number }}
+        Rodada
       </h1>
       <p>
-        Começa: {{ activeRound.startDate }}
+        Começa: {{ formatDate(activeRound.startDate) }}
       </p>
       <p>
-        Encerra: {{ activeRound.endDate }}
+        Encerra: {{ formatDate(activeRound.endDate) }}
       </p>
     </div>
 
@@ -22,42 +26,30 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'VotingRedirect',
 
+  components: {
+    LoadingSpinner,
+  },
+
+  data() {
+    return {
+      loading: false,
+    };
+  },
+
   computed: {
     ...mapGetters([
       'userToken',
-      'allRounds',
+      'activeRound',
     ]),
-
-    activeRound() {
-      const active = this.allRounds.data.find((el) => {
-        const currentDate = new Date;
-
-        return el.endDate > currentDate.toISOString();
-      });
-
-      return {
-        number: active.number,
-        startDate: this.formatDate(active.startDate),
-        endDate: this.formatDate(active.endDate)
-      };
-    }
-  },
-
-  created() {
-    this.getAllRounds();
-    this.activeRound;
   },
 
   methods: {
-    ...mapActions([
-      'getAllRounds',
-    ]),
-
     formatDate(date) {
       const fullDate = new Date(date);
       const day = fullDate.getDate();

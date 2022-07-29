@@ -6,7 +6,7 @@ export default {
     },
 
     getters: {
-      allRounds: (state) => state.rounds,
+      activeRound: (state) => state.rounds !== undefined ? state.rounds.data.find(el => el.isActive === true) : []
     },
 
     actions: {
@@ -14,6 +14,8 @@ export default {
         const response = await api.getRound();
 
         commit('GET_ROUND', response.data);
+
+        return response.data;
       }
     },
 

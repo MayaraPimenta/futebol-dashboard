@@ -3,7 +3,6 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import Login from '../views/Login.vue';
 import Voting from '../views/Voting.vue';
-import store from '@/store/modules/auth';
 
 Vue.use(VueRouter);
 
@@ -29,7 +28,7 @@ const routes = [
     name: 'Votacao',
     component: Voting,
     meta: {
-      requiresAuth: true,
+      requiresAuth: false,
     }
   },
 ];
@@ -41,20 +40,12 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  let redirectPath = null;
-  const redirectQuery = {};
-
-  redirectQuery.redirect = to.fullPath;
   // Checking if the route requires auth
-  if (to.matched.some(record => record.meta.requiresAuth) && !store.state.authenticated) {
+  if (to.matched.some(record => record.meta.requiresAuth) && !sessionStorage.getItem('user_token')) {
     return next({ name: 'Login' });
-  } else if (redirectPath) {
-    return next({
-      path: to.fullPath,
-      query: redirectQuery
-    });
+  } else {
+    return next();
   }
-  next();
 });
 
 export default router;

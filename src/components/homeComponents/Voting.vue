@@ -31,7 +31,7 @@ import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
 import { mapGetters } from 'vuex';
 
 export default {
-  name: 'VotingRedirect',
+  name: 'Voting',
 
   components: {
     LoadingSpinner,
@@ -74,7 +74,7 @@ export default {
   background-color: $gray-card;
   backdrop-filter: blur(4px);
   border-radius: 10px;
-  color: white;
+  color: $primary-light;
   padding: 24px;
   text-decoration: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -88,7 +88,7 @@ export default {
     font-size: 3rem;
     text-transform: uppercase;
     font-weight: 700;
-    color: #FB891F;
+    color: $secondary;
   }
 }
 </style>

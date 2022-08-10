@@ -1,5 +1,9 @@
 <template>
-  <div class="login-card">
+  <LoadingSpinner v-if="loading" />
+  <div
+    v-else
+    class="login-card"
+  >
     <div class="login-card__title">
       LOGIN
     </div>
@@ -41,12 +45,18 @@
 
 <script>
   import { mapActions, mapGetters } from 'vuex';
+  import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
 
   export default {
     name: 'LoginCard',
 
+    components: {
+      LoadingSpinner,
+    },
+
     data() {
       return {
+        loading: false,
         user: {
           email: '',
           password: '',
@@ -66,10 +76,14 @@
       ]),
 
       async login() {
+        this.loading = true;
+
         await this.loginUser({
           email: this.user.email,
           password: this.user.password,
         });
+
+        this.loading = false;
       }
     }
   };

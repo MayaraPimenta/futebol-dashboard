@@ -34,6 +34,7 @@
     @include screen(tablet-up) {
       height: 400px;
       background-color: $gray-card;
+      backdrop-filter: blur(4px);
       border-radius: 10px;
       color: white;
       padding: 24px;

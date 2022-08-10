@@ -36,13 +36,15 @@ export default {
     };
   },
 
-  mounted() {
+  created() {
     this.getAllRounds();
+    this.getVotes();
   },
 
   methods: {
     ...mapActions([
       'getAllRounds',
+      'getVotes',
     ]),
   }
 };
@@ -58,7 +60,6 @@ export default {
   @include screen(tablet-up) {
     grid-template: auto auto /0.8fr 2fr;
     gap: 60px;
-    padding: 4rem;
   }
 }
 </style>
